@@ -1,14 +1,18 @@
 function selectionSort(arr) {
-  for (let i = 0; i < arr.length; i++){
-    for (let j = 0; j < arr.length; j++){
-      if (arr[i] < arr[j]){
-        let temp = arr[i]
-        arr[i] = arr[j]
-        arr[j] = temp
+  let result = []
+  while (arr.length != 0){
+    let min = arr[0]
+    let index = 0
+    for (let i = 1; i < arr.length; i++){
+      if (arr[i] < min){
+        min = arr[i]
+        index = i
       }
     }
+    result.push(min)
+    arr.splice(index, 1)
   }
-  return arr
+  return result
 }
 
 console.log(selectionSort([33, 2, 52, 106, 73]));
