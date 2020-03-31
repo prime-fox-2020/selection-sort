@@ -1,5 +1,19 @@
 function selectionSort(arr) {
-
+    var len = arr.length
+    for (var i = 0; i<len; i++){
+        var min = i
+        for (var j = i+1; j<len; j++){
+            if (arr[min] > arr[j]){
+                min = j
+            }
+        }
+        if (min !== i){
+            var temp = arr[i]
+            arr[i] = arr[min]
+            arr[min] = temp
+        }
+    }
+    return arr
 }
 
 console.log(selectionSort([33, 2, 52, 106, 73]));
